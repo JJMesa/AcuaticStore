@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+/* Declare color variables to use more easy */
+:root {
+    --color-main: #00ABE4;
+    --color-main-light:#ae9eed;
+    --color-white: #ececec;
+    --color-gray: #e2e2e2;
+    --color-red: #961818;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, input, textarea, ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    background-color: var(--color-main);
+}
+
+aside {
+    padding: 2rem;
+    padding-right: 0;
+    color: var(--color-white);
+    /* Para que nos persiga como bajemos algo como bloquearlo*/
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.text-logo {
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.btn-menu {
+    background-color: transparent;
+    border: 0;
+    color: var(--color-white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    font-size: .85rem;
+}
+
+.btn-menu.active {
+    background-color: var(--color-white);
+    color: var(--color-main);
+    width: 100%;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    position: relative;
+}
+
+.btn-menu.active::before {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    bottom: 100%;
+    right: 0;
+    background-color: transparent;
+    border-bottom-right-radius: .5rem;
+    box-shadow: 0 1rem 0 var(--color-white);
+}
+
+.btn-menu.active::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    top: 100%;
+    right: 0;
+    background-color: transparent;
+    border-top-right-radius: .5rem;
+    box-shadow: 0 -1rem 0 var(--color-white);
+}
+
+.btn-menu > i.bi-hand-index-thumb-fill, 
+.btn-menu > i.bi-hand-index-thumb {
+    transform: rotateZ(90deg);
+}
+
+.btn-cart {
+    margin-top: 2rem;
+}
+
+.number-items {
+    background-color: var(--color-white);
+    color: var(--color-main);
+    padding: .15rem .25rem;
+    border-radius: .25rem;
+}
+
+.text-footer {
+    color: var(--color-main-light);
+    font-size: 0.5rem;
+}
+
+
+/* Main */
+main {
+    background-color: var(--color-white);
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 2rem;
+    padding: 2rem;    
+}
+
+.main-title {
+    color: var(--color-main);
+    margin-bottom: 2rem;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.product-image {
+    max-width: 100%;
+    border-radius: 1rem;
+}
+
+.product-details {
+    background-color: var(--color-main);
+    color: var(--color-white);
+    padding: .5rem;
+    border-radius: 1rem;
+    margin-top: -2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.product-title {
+    font-size: 1rem;
+}
+
+.product-add {
+    border: 0;
+    background-color: var(--color-white);
+    color: var(--color-main);
+    padding: .4rem;
+    text-transform: uppercase;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: 2px solid var(--color-white);
+}
+
+.product-add:hover {
+    background-color: var(--color-main);
+    color: var(--color-white);
+    transition: background-color .5s, color .5s;
+}
