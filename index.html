@@ -19,60 +19,29 @@
             <nav>
                 <ul class="menu">
                     <li>
-                        <button class="btn-menu btn-category active"><i class="bi bi-hand-index-thumb-fill"></i> Todos los Productos</button>
+                        <button id="all-products" class="btn-menu btn-category active"><i class="bi bi-hand-index-thumb-fill"></i> Todos los Productos</button>
                     </li>
                     <li>
-                        <button class="btn-menu btn-category"><i class="bi bi-hand-index-thumb"></i> Gafas</button>
+                        <button id="googles" class="btn-menu btn-category"><i class="bi bi-hand-index-thumb"></i> Gafas</button>
                     </li>
                     <li>
-                        <button class="btn-menu btn-category"><i class="bi bi-hand-index-thumb"></i> Trajes de competencia</button>
+                        <button id="fastkins" class="btn-menu btn-category"><i class="bi bi-hand-index-thumb"></i> Competition Suits</button>
                     </li>
                     <li>
-                        <button class="btn-menu btn-category"><i class="bi bi-hand-index-thumb"></i> Implementos</button>
+                        <button id="training-items" class="btn-menu btn-category"><i class="bi bi-hand-index-thumb"></i> Implementos</button>
                     </li>
                     <li>
                         <a class="btn-menu btn-cart" href="./cart.html">
-                            <i class="bi bi-cart-fill"></i> Carrito <span class="number-items">0</span></a>
+                            <i class="bi bi-cart-fill"></i> Carrito <span id="number-items" class="number-items">0</span></a>
                     </li>
                 </ul>
             </nav>
             <footer><p class="text-footer">@AcuaticStore</p></footer>
         </aside>
         <main>
-            <h2 class="main-title">Todos los productos</h2>
-            <div class="products-container">
-                <div class="product">
-                    <img class="product-image" src="./img/fastkin-lzr-pure-male.webp" alt="">
-                    <div class="product-details">
-                        <h3 class="product-title">Fastkin 01</h3>
-                        <p class="product-price">$1000</p>
-                        <button class="product-add">Agregar</button>
-                    </div>
-                </div>
-                <div class="product">
-                    <img class="product-image" src="./img/fastkin-lzr-pure-male.webp" alt="">
-                    <div class="product-details">
-                        <h3 class="product-title">Fastkin 01</h3>
-                        <p class="product-price">$1000</p>
-                        <button class="product-add">Agregar</button>
-                    </div>
-                </div>
-                <div class="product">
-                    <img class="product-image" src="./img/fastkin-lzr-pure-male.webp" alt="">
-                    <div class="product-details">
-                        <h3 class="product-title">Fastkin 01</h3>
-                        <p class="product-price">$1000</p>
-                        <button class="product-add">Agregar</button>
-                    </div>
-                </div>
-                <div class="product">
-                    <img class="product-image" src="./img/fastkin-lzr-pure-male.webp" alt="">
-                    <div class="product-details">
-                        <h3 class="product-title">Fastkin 01</h3>
-                        <p class="product-price">$1000</p>
-                        <button class="product-add">Agregar</button>
-                    </div>
-                </div>
+            <h2 id="main-title" class="main-title">Todos los productos</h2>
+            <div id="products-container" class="products-container">
+                <!-- Fill with JS -->
             </div>
         </main>
     </div>
