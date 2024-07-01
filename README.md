@@ -15,7 +15,7 @@ Instalación
 Clona este repositorio en tu máquina local:
 sh
 Copy code
-git clone https://github.com/tu-usuario/tienda-natacion.git
+git clone https://github.com/alejoarte/tienda-natacion.git
 Navega al directorio del proyecto:
 sh
 Copy code
