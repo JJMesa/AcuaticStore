@@ -217,10 +217,23 @@ main {
 .image-product-cart {
     width: 4rem;
     border-radius: 1rem;
+    flex: 0 0 4rem; /* Fixed width for the image */
 }
 
 .product-cart small {
     font-size: .75rem;
+}
+
+.cart-product-title,
+.cart-product-quantity,
+.cart-product-price,
+.cart-product-subtotal {
+    flex: 1; /* Each column is the same size */
+    text-align: center;
+}
+
+.cart-product-title {
+    flex: 2; /* The title has double the space */
 }
 
 .delete-product-cart{
@@ -228,6 +241,7 @@ main {
     background-color: transparent;
     color: var(--color-red);
     cursor: pointer;
+    flex: 0 0 2rem; /* Fixed width for delete button */
 }
 
 .actions-cart {
