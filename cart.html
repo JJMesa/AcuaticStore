@@ -33,65 +33,28 @@
         <main>
             <h2 class="main-title">Carrito</h2>
             <div class="cart-container">
-                <p class="empty-cart">Tu carrito esta vacio. <i class="bi bi-emoji-frown"></i></p>
-                <div class="products-cart disabled">
-                    <div class="product-cart">
-                        <img class="image-product-cart" src="./img/fastkin-lzr-pure-male.webp" alt="">
-                        <div class="title-product-cart">
-                            <small>Titulo</small>
-                            <h3>Abrigo 01</h3>
-                        </div>
-                        <div class="quantity-product-cart">
-                            <small>Cantidad</small>
-                            <p>1</p>
-                        </div>
-                        <div class="price-product-cart">
-                            <small>Precio</small>
-                            <p>$1000</p>
-                        </div>
-                        <div class="subtotal-product-cart">
-                            <small>Subtotal</small>
-                            <p>1000</p>
-                        </div>
-                        <button class="delete-product-cart"><i class="bi bi-trash-fill"></i></button>
-                    </div>
-                    <div class="product-cart">
-                        <img class="image-product-cart" src="./img/fastkin-lzr-pure-male.webp" alt="">
-                        <div class="title-product-cart">
-                            <small>Titulo</small>
-                            <h3>Abrigo 01</h3>
-                        </div>
-                        <div class="quantity-product-cart">
-                            <small>Cantidad</small>
-                            <p>1</p>
-                        </div>
-                        <div class="price-product-cart">
-                            <small>Precio</small>
-                            <p>$1000</p>
-                        </div>
-                        <div class="subtotal-product-cart">
-                            <small>Subtotal</small>
-                            <p>1000</p>
-                        </div>
-                        <button class="delete-product-cart"><i class="bi bi-trash-fill"></i></button>
-                    </div>
+                <p id="empty-cart" class="empty-cart">Tu carrito esta vacio. <i class="bi bi-emoji-frown"></i></p>
+                
+                <div id="products-cart" class="products-cart disabled">
+                    <!-- Fill with JS -->
                 </div>
-                <div class="actions-cart disabled">
+
+                <div id="actions-cart" class="actions-cart disabled">
                     <div class="left-actions-cart">
-                        <button class="empty-actions-cart">Vaciar Carrito</button>
+                        <button id="empty-actions-cart" class="empty-actions-cart">Vaciar Carrito</button>
                     </div>
                     <div class="right-actions-cart">
                         <div class="total-actions-cart">
                             <p>Total</p>
                             <p id="total">$5000</p>
                         </div>
-                        <button class="buy-actions-cart">Comprar Ahora</button>
+                        <button id="buy-actions-cart" class="buy-actions-cart">Comprar Ahora</button>
                     </div>
                 </div>
-                <p class="empty-cart disabled">Muchas gracias por tu compra.<i class="bi bi-emoji-laughing"></i></p>
+                <p id="purchased-cart" class="purchased-cart disabled">Muchas gracias por tu compra.<i class="bi bi-emoji-laughing"></i></p>
             </div>
         </main>
     </div>
-    <script src="./js/main.js"></script>
+    <script src="./js/cart.js"></script>
 </body>
 </html>
