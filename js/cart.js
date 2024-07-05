@@ -72,6 +72,29 @@ function updateDeleteButtons() {
 };
 
 function removeFromCart(e) {
+
+    // Creating the added message successfully with Toastify 
+    Toastify({
+        text: "Producto eliminado",
+        duration: 300222220,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)",
+          borderRadius: "2rem",
+          textTransform: "uppercase",
+          fontSize: ".75rem"
+        },
+        offset: {
+            x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+          },
+        onClick: function(){} // Callback after click
+    }).showToast();
+
+
     const idButton = e.currentTarget.id;
     const index = itemsInCart.findIndex(product => product.id === idButton);
 
@@ -84,9 +107,48 @@ function removeFromCart(e) {
 emptyCartButton.addEventListener("click", emptyCart);
 
 function emptyCart() {
-    itemsInCart.length = 0;
-    localStorage.setItem("items-in-cart", JSON.stringify(itemsInCart));
-    loadProductsCart();
+    // Creating the sweetalert for confirmation when we are empting the cart
+    
+    // Swal.fire({
+    //     title: '¿Estás seguro?',
+    //     icon: 'question',
+    //     html: `Se van a borrar ${itemsInCart.reduce((acc, product) => acc + product.quantity, 0)} productos.`,
+    //     showCancelButton: true,
+    //     focusConfirm: false,
+    //     confirmButtonText: 'Sí',
+    //     cancelButtonText: 'No'
+    // }).then((result) => {
+    //     if (result.isConfirmed) {
+    //         itemsInCart.length = 0;
+    //         localStorage.setItem("items-in-cart", JSON.stringify(itemsInCart));
+    //         loadProductsCart();
+    //     }
+    //   })
+
+    Swal.fire({
+        title: "¿Estás seguro?",
+        html: `Se van a borrar ${itemsInCart.reduce((acc, product) => acc + product.quantity, 0)} productos.`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si",
+        cancelButtonText: 'No'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            itemsInCart.length = 0;
+            localStorage.setItem("items-in-cart", JSON.stringify(itemsInCart));
+            loadProductsCart();
+            Swal.fire({
+                title: "😢",
+                text: "Tus items fueron eliminados.",
+                icon: "success",
+                confirmButtonColor: "#3085d6"
+            });
+        }
+    });
+
+
 };
 
 function updateTotal() {

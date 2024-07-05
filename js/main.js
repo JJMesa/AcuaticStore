@@ -1,41 +1,23 @@
-const products = [
-    {
-        "id": "fastkin-01",
-        "title": "Fastkin 01",
-        "image": "./img/fastkin-lzr-pure-male.webp",
-        "category": {
-            "name": "Competition Suits",
-            "id": "fastkins"
-        },
-        "price": 1000
-    },
-    {
-        "id": "googles-01",
-        "title": "Googles 01",
-        "image": "./img/fastkin-lzr-pure-male.webp",
-        "category": {
-            "name": "Googles",
-            "id": "googles"
-        },
-        "price": 2000
-    },
-    {
-        "id": "training-item-01",
-        "title": "Training item 01",
-        "image": "./img/fastkin-lzr-pure-male.webp",
-        "category": {
-            "name": "Training Items",
-            "id": "training-items"
-        },
-        "price": 2000
-    },
-];
+// Using Fetch to load the products
+const url = "./js/products.json";
+let products = [];
+
+fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        products = data;
+        uploadProducts(products);
+    })
 
 const productsContainer = document.querySelector("#products-container");
 const buttonsCategories = document.querySelectorAll(".btn-category");
 const mainTitle = document.querySelector("#main-title");
 let addButtons = document.querySelectorAll(".product-add")
 const numberItems = document.querySelector("#number-items");
+
+buttonsCategories.forEach(button => button.addEventListener("click", () => {
+    aside.classList.remove("aside-visible");
+}))
 
 function uploadProducts(chosenProducts) {
 
@@ -59,11 +41,10 @@ function uploadProducts(chosenProducts) {
     updateButtonsAdd();
 }
 
-uploadProducts(products);
 
-buttonsCategories.forEach(boton => {
-    boton.addEventListener("click", (e) => {
-        buttonsCategories.forEach(boton => boton.classList.remove("active"));
+buttonsCategories.forEach(button => {
+    button.addEventListener("click", (e) => {
+        buttonsCategories.forEach(button => button.classList.remove("active"));
         e.currentTarget.classList.add("active");
 
         if (e.currentTarget.id != "all-products") {
@@ -98,6 +79,28 @@ if (itemsInCartLS) {
 }
 
 function addToCart(e) {
+
+    // Creating the added message successfully with Toastify 
+    Toastify({
+        text: "Producto agregado",
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)",
+          borderRadius: "2rem",
+          textTransform: "uppercase",
+          fontSize: ".75rem"
+        },
+        offset: {
+            x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+          },
+        onClick: function(){} // Callback after click
+      }).showToast();
+
     const idButton = e.currentTarget.id;
     const productAdded = products.find(product => product.id === idButton);
     

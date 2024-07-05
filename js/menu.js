@@ -9,7 +9,3 @@ openMenu.addEventListener("click", () => {
 closeMenu.addEventListener("click", () => {
     aside.classList.remove("visible-aside");
 })
-
-buttonsCategories.forEach(buttonn => buttonn.addEventListener("click", () => {
-    aside.classList.remove("visible-aside")
-}))
