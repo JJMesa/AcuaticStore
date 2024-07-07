@@ -73,58 +73,53 @@ function updateDeleteButtons() {
 
 function removeFromCart(e) {
 
-    // Creating the added message successfully with Toastify 
-    Toastify({
-        text: "Producto eliminado",
-        duration: 3,
-        close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-          background: "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)",
-          borderRadius: "2rem",
-          textTransform: "uppercase",
-          fontSize: ".75rem"
-        },
-        offset: {
-            x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-            y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
-          },
-        onClick: function(){} // Callback after click
-    }).showToast();
-
-
     const idButton = e.currentTarget.id;
     const index = itemsInCart.findIndex(product => product.id === idButton);
 
-    itemsInCart.splice(index, 1);
-    loadProductsCart();
+    // Show SweetAlert to confirm the delete of a product
+    Swal.fire({
+        title: "¿Está seguro de eliminar este producto?",
+        icon: "question",
+        confirmButtonText: "Sí",
+        cancelButtonText: "No",
+        showCancelButton: true,
+        showCloseButton: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Creating the eliminated message successfully with Toastify 
+            Toastify({
+                text: "Producto eliminado",
+                duration: 3000,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #4facfe 0%, #00f2fe 100%)",
+                    borderRadius: "2rem",
+                    textTransform: "uppercase",
+                    fontSize: ".75rem"
+                },
+                offset: {
+                    x: '1.5rem', // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+                    y: '1.5rem' // vertical axis - can be a number or a string indicating unity. eg: '2em'
+                },
+                onClick: function(){} // Callback after click
+            }).showToast();
 
-    localStorage.setItem("items-in-cart", JSON.stringify(itemsInCart));
+            itemsInCart.splice(index, 1);
+            loadProductsCart();
+        
+            localStorage.setItem("items-in-cart", JSON.stringify(itemsInCart));
+        }
+    });
+
 };
 
 emptyCartButton.addEventListener("click", emptyCart);
 
 function emptyCart() {
     // Creating the sweetalert for confirmation when we are empting the cart
-    
-    // Swal.fire({
-    //     title: '¿Estás seguro?',
-    //     icon: 'question',
-    //     html: `Se van a borrar ${itemsInCart.reduce((acc, product) => acc + product.quantity, 0)} productos.`,
-    //     showCancelButton: true,
-    //     focusConfirm: false,
-    //     confirmButtonText: 'Sí',
-    //     cancelButtonText: 'No'
-    // }).then((result) => {
-    //     if (result.isConfirmed) {
-    //         itemsInCart.length = 0;
-    //         localStorage.setItem("items-in-cart", JSON.stringify(itemsInCart));
-    //         loadProductsCart();
-    //     }
-    //   })
-
     Swal.fire({
         title: "¿Estás seguro?",
         html: `Se van a borrar ${itemsInCart.reduce((acc, product) => acc + product.quantity, 0)} productos.`,
@@ -133,7 +128,8 @@ function emptyCart() {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Si",
-        cancelButtonText: 'No'
+        cancelButtonText: 'No',
+        iconColor: '#3085d6'
     }).then((result) => {
         if (result.isConfirmed) {
             itemsInCart.length = 0;
