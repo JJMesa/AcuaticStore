@@ -76,7 +76,7 @@ function removeFromCart(e) {
     // Creating the added message successfully with Toastify 
     Toastify({
         text: "Producto eliminado",
-        duration: 300222220,
+        duration: 3,
         close: true,
         gravity: "top", // `top` or `bottom`
         position: "right", // `left`, `center` or `right`
